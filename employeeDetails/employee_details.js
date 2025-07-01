@@ -1,7 +1,7 @@
 const employees = [
-      { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 50000 },
-      { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 45000 },
-      { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000 },
+      { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 50000, specialisation: 'JavaScript' },
+      { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 45000, specialisation: 'Python' },
+      { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000, specialisation: 'Java' },
       //... More employee records can be added here
     ];
 function displayEmployees(){
@@ -28,4 +28,15 @@ function findEmployeeById(employeeId) {
     else{
       document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
      }
+ }
+
+function findBySpecialisation(employeeSpecialisation){
+    const foundSpecialisation = employees.find(employee => employee.specialisation === employeeSpecialisation);
+    if(foundSpecialisation){
+        document.getElementById('employeesDetails').innerHTML =`<p> ${foundSpecialisation.id}: ${foundSpecialisation.name}: ${foundSpecialisation.name} - ${foundSpecialisation.department} - £${foundSpecialisation.salary} - ${foundSpecialisation.specialisation}</p>`
+    }
+    else{
+        document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this Specialisation';
+    }
+
  }
